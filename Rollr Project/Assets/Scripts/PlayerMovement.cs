@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float rSpeed, thrust;
 
     public bool IsOnGround = false;
+    public bool canMove = false;
     
     // Start is called before the first frame update
     void Start()
@@ -20,23 +21,31 @@ public class PlayerMovement : MonoBehaviour
         IsOnGround = true;
     }
 
+    public void CanMoveCheck()
+    {
+        canMove = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (canMove == true)
         {
-            rb.AddForce(rSpeed,0, 0 * Time.deltaTime);
-        }
-        
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            rb.AddForce(-rSpeed,0, 0 * Time.deltaTime);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
-        {
-            rb.AddForce(0,thrust, 0 * Time.deltaTime);
-            IsOnGround = false;
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.AddForce(rSpeed, 0, 0 * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb.AddForce(-rSpeed, 0, 0 * Time.deltaTime);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
+            {
+                rb.AddForce(0, thrust, 0 * Time.deltaTime);
+                IsOnGround = false;
+            }
         }
     }
 }
