@@ -13,6 +13,11 @@ public class MovementBehaviour : MonoBehaviour
         
     }
 
+    public void StartGame()
+    {
+        canMove = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
