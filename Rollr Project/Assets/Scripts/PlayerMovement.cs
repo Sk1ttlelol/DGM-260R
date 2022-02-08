@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public float rSpeed, thrust;
-
+    public float thrust;
+    public float rSpeed;
     public bool IsOnGround = false;
     public bool canMove = false;
     
@@ -31,15 +31,33 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canMove == true)
         {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                rb.AddForce(0, 0, rSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                rb.AddForce(0, 0, -rSpeed * Time.deltaTime);
+            }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                rb.AddForce(rSpeed, 0, 0 * Time.deltaTime);
+                rb.AddForce(rSpeed * Time.deltaTime, 0, 0);
             }
 
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                rb.AddForce(-rSpeed, 0, 0 * Time.deltaTime);
+                rb.AddForce(-rSpeed * Time.deltaTime, 0, 0);
             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
             if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
             {

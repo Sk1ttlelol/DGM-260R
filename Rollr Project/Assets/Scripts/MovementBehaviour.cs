@@ -6,11 +6,19 @@ public class MovementBehaviour : MonoBehaviour
 {
     public float speed;
     public bool canMove;
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    private Vector3 offset;
+    
+    void Start () 
     {
-        
+        offset = transform.position - player.transform.position;
+        //player = GameObject.Find("Player");
+    }
+
+    
+    void LateUpdate () 
+    {
+        transform.position = player.transform.position + offset;
     }
 
     public void StartGame()
@@ -19,11 +27,11 @@ public class MovementBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (canMove == true)
-        {
-            transform.Translate(Vector3.down * Time.deltaTime * speed,Space.World);  
-        }
-    }
+    //void Update()
+    //{
+    //    if (canMove == true)
+    //    {
+    //        transform.Translate(Vector3.down * Time.deltaTime * speed,Space.World);  
+    //    }
+    //}
 }
