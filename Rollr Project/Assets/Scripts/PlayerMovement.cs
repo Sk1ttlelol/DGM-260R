@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CanMoveCheck()
     {
-        canMove = true;
+        //canMove = true;
     }
 
     // Update is called once per frame
