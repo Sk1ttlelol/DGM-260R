@@ -12,13 +12,14 @@ public class TimerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startTime = Time.time;
+        //startTime = Time.time;
     }
 
     public void DeclareTime()
     {
+        startTime = Time.time;
         canTick = true;
-        timeF = Time.time - startTime;
+        
     }
 
     public void EndTime()
@@ -31,10 +32,12 @@ public class TimerBehaviour : MonoBehaviour
     {
         if (canTick)
         {
+            timeF = Time.time - startTime;
             string minutes = ((int) timeF / 60).ToString();
             string seconds = (timeF % 60).ToString("f2");
 
             timerText.text = minutes + ":" + seconds;
+            Debug.Log("Timer go Up");
         }
         
     }
