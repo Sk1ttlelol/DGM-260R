@@ -8,6 +8,7 @@ public class TimerBehaviour : MonoBehaviour
     public Text timerText;
     private float timeF;
     private float startTime;
+    private float refTime = 0;
     public bool canTick = false;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class TimerBehaviour : MonoBehaviour
 
     public void DeclareTime()
     {
+        //startTime = refTime;
         startTime = Time.time;
         canTick = true;
         
@@ -25,6 +27,7 @@ public class TimerBehaviour : MonoBehaviour
     public void EndTime()
     {
         canTick = false;
+        startTime = refTime;
     }
 
     // Update is called once per frame
