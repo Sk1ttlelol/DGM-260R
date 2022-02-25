@@ -14,7 +14,7 @@ public class PlatformMovementBehvaiour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MovePlatform)
+        if (MovePlatform.value)
         {
             transform.Translate(100 * Time.deltaTime ,0,0);
             Debug.Log("Moving Platforms");
