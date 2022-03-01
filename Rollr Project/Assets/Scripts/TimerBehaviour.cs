@@ -5,15 +5,27 @@ using UnityEngine.UI;
 public class TimerBehaviour : MonoBehaviour
 {
 
-    public Text timerText;
+    public Text timeRn;
+    public Text timeBest;
+    
     private float timeF;
     private float startTime;
     private float refTime = 0;
+    
+    
+    private float record;
     public bool canTick = false;
+    // Old Timer
+    //private string minutes;
+    //private string seconds;
+    private string currentTimeToDisplay, recordTimeToDisplay;
+    [SerializeField] private float minutes, sMinutes;
+    [SerializeField] private float seconds, sSeconds;
+    
     // Start is called before the first frame update
     void Start()
     {
-        //startTime = Time.time;
+        //recordTimeToDisplay = $"{sMinutes:00} : {sSeconds:00}";
     }
 
     public void DeclareTime()
@@ -28,6 +40,25 @@ public class TimerBehaviour : MonoBehaviour
     {
         canTick = false;
         startTime = refTime;
+        RecordTimeCheck();
+    }
+
+    public void RecordTimeCheck()
+    {
+        if (minutes <= sMinutes)
+        {
+            sMinutes = minutes;
+        }
+
+        if (seconds <= sSeconds)
+        {
+            sSeconds = seconds;
+            recordTimeToDisplay = $"{sMinutes:00} : {sSeconds:00}";
+            timeBest.text = recordTimeToDisplay;
+        }
+            
+            //recordTimeToDisplay = $"{sMinutes:00} : {sSeconds:00}";
+        
     }
 
     // Update is called once per frame
@@ -35,11 +66,15 @@ public class TimerBehaviour : MonoBehaviour
     {
         if (canTick)
         {
+            timeF += Time.deltaTime;
             timeF = Time.time - startTime;
-            string minutes = ((int) timeF / 60).ToString();
-            string seconds = (timeF % 60).ToString("f2");
-
-            timerText.text = minutes + ":" + seconds;
+            //minutes = ((int) timeF / 60).ToString();
+            //seconds = (timeF % 60).ToString("f2");
+            seconds = timeF % 60;
+            minutes = timeF / 60;
+            
+            currentTimeToDisplay = $"{minutes:0} : {seconds:00}";
+            timeRn.text = currentTimeToDisplay;
             Debug.Log("Timer go Up");
         }
         
