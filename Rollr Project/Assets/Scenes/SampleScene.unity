@@ -1051,6 +1051,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectibleAmount: {fileID: 446422485}
   CollectibleIntValue: {fileID: 11400000, guid: 98848f961d48466448917dff7c255335, type: 2}
+  textUpdateEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 446422484}
+        m_TargetAssemblyTypeName: TextUpdatebehvaiour, Assembly-CSharp
+        m_MethodName: UpdateTextValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 98848f961d48466448917dff7c255335, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &446422485
 MonoBehaviour:
   m_ObjectHideFlags: 0
