@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlatformMovementBehvaiour : MonoBehaviour
 {
     public BoolData MovePlatform;
+    public float rightBound, leftBound;
+    public bool L_Reached, R_Reached;
+
+    public float repeatFrequency = .01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +18,42 @@ public class PlatformMovementBehvaiour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MovePlatform.value)
+        if (transform.position.x < leftBound)
         {
-            transform.Translate(100 * Time.deltaTime ,0,0);
-            Debug.Log("Moving Platforms");
+            L_Reached = true;
+            R_Reached = false;
+        }
+        if (transform.position.x > rightBound)
+        {
+            L_Reached = false;
+            R_Reached = true;
+        }
+        
+            
+    }
+
+    public void StartMovement()
+    {
+        StartCoroutine(MovePlatforms());
+    }
+
+    IEnumerator MovePlatforms()
+    {
+        while (MovePlatform)
+        {
+            if (L_Reached)
+            {
+                transform.Translate(.1f,0,0);
+                Debug.Log("SKRRT SKRRT RIGHT");
+            }
+            else
+            {
+                transform.Translate(-.1f,0,0);
+                Debug.Log("SKRRT SKRRT LEFT");
+            }
+            
+            
+            yield return new WaitForSeconds (repeatFrequency);
         }
     }
 }
