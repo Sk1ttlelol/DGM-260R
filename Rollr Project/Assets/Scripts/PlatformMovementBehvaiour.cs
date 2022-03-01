@@ -35,6 +35,7 @@ public class PlatformMovementBehvaiour : MonoBehaviour
     public void StartMovement()
     {
         StartCoroutine(MovePlatforms());
+        Debug.Log("Coroutine Started");
     }
 
     IEnumerator MovePlatforms()
