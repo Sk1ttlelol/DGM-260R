@@ -1242,7 +1242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 413.3, y: 192}
+  m_AnchoredPosition: {x: 367, y: 166}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462682774
@@ -1889,6 +1889,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 605432486}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &787083132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 787083134}
+  - component: {fileID: 787083133}
+  m_Layer: 0
+  m_Name: SkyboxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &787083133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787083132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06f29af89f4c4494388291f943ac6117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl1MAT: {fileID: 2100000, guid: 2d796ced94d61438fbab81b194038162, type: 2}
+  lvl2MAT: {fileID: 2100000, guid: 7416536dbe0334cfd888dd1beb75a9fb, type: 2}
+  lvl3MAT: {fileID: 0}
+  lvl4MAT: {fileID: 0}
+  lvl5MAT: {fileID: 0}
+  lvl6MAT: {fileID: 0}
+  lvl7MAT: {fileID: 0}
+  lvl8MAT: {fileID: 0}
+--- !u!4 &787083134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787083132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.3854218, y: 1.2279296, z: 62.367264}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &811719795
 GameObject:
@@ -3742,6 +3793,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 72907878}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 787083133}
+        m_TargetAssemblyTypeName: SkyboxController, Assembly-CSharp
+        m_MethodName: SkyboxChangeOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5837,7 +5900,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1880476354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6453,6 +6516,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1374942855}
         m_TargetAssemblyTypeName: TeleportBehaviour, Assembly-CSharp
         m_MethodName: StartLevel1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 787083133}
+        m_TargetAssemblyTypeName: SkyboxController, Assembly-CSharp
+        m_MethodName: SkyboxChangeTwo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
