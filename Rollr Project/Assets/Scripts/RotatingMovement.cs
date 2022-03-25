@@ -6,7 +6,7 @@ public class RotatingMovement : MonoBehaviour
 {
     
     public float repeatFrequency = .01f;
-    public bool RotatePlatform = false;
+    private bool RotatePlatform = true;
     public float rotXSpeed, rotYSpeed, rotZSpeed;
     
     // Start is called before the first frame update
