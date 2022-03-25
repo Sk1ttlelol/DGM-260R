@@ -7,16 +7,16 @@ public class MovementBehaviour : MonoBehaviour
     public float speed;
     public bool canMove;
     public GameObject player;
-    private Vector3 offset;
+    public Vector3 offset;
     
     void Start () 
     {
-        offset = transform.position - player.transform.position;
+        //offset = transform.position - player.transform.position;
         //player = GameObject.Find("Player");
     }
 
     
-    void LateUpdate () 
+    void Update () 
     {
         transform.position = player.transform.position + offset;
     }

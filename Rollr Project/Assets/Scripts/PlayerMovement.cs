@@ -26,6 +26,16 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
     }
 
+    public void Jump()
+    {
+        if (IsOnGround == true)
+        {
+            rb.AddForce(0, thrust, 0 * Time.deltaTime);
+            IsOnGround = false;
+        }
+    }
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -59,11 +69,7 @@ public class PlayerMovement : MonoBehaviour
             
             
 
-            if (Input.GetKeyDown(KeyCode.Space) && IsOnGround == true)
-            {
-                rb.AddForce(0, thrust, 0 * Time.deltaTime);
-                IsOnGround = false;
-            }
+            
         }
     }
 }
