@@ -251,6 +251,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3715170742750502500, guid: e865a69b863a84448a2e4cb53f690184, type: 3}
+--- !u!114 &23000670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23000665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2b3bf6d334674f42ad069fa6a60b932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatFrequency: 2.5
+  flipPlatform: 1
 --- !u!1 &41237691
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,15 +715,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c832a67c183eb2240928cd61f713f9a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.25
+      value: 19.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c832a67c183eb2240928cd61f713f9a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.02
+      value: 10.95
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c832a67c183eb2240928cd61f713f9a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.42
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c832a67c183eb2240928cd61f713f9a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -921,6 +935,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1322907711933086063, guid: c832a67c183eb2240928cd61f713f9a3, type: 3}
+--- !u!114 &135110292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135110287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a145c5953d1a31e4bb23f826915410e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatFrequency: 0.01
+  RotatePlatform: 0
+  rotXSpeed: 0
+  rotYSpeed: 0
+  rotZSpeed: 0
 --- !u!1 &138382104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84af57c5b1fe8604daf4d235c32ee55e, type: 3}
@@ -4408,13 +4439,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.31179595, y: -0, z: -0, w: 0.9501491}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
   m_LocalPosition: {x: -19.79, y: 29.02, z: -9.705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 36.335, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4430,6 +4461,7 @@ MonoBehaviour:
   speed: 0.5
   canMove: 0
   player: {fileID: 1374942847}
+  offset: {x: 0, y: 1, z: -2}
 --- !u!1 &975154667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4482,6 +4514,7 @@ MonoBehaviour:
   L_Reached: 1
   R_Reached: 0
   repeatFrequency: 0.05
+  pSpeed: 0
 --- !u!65 &975154670
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5256,9 +5289,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: c6044d8b8b63bfb4eb61ee5e68741af6, type: 2}
-        m_TargetAssemblyTypeName: GameAction, Assembly-CSharp
-        m_MethodName: RaiseAction
+      - m_Target: {fileID: 135110292}
+        m_TargetAssemblyTypeName: RotatingMovement, Assembly-CSharp
+        m_MethodName: AllowRotation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 135110292}
+        m_TargetAssemblyTypeName: RotatingMovement, Assembly-CSharp
+        m_MethodName: StartMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 23000670}
+        m_TargetAssemblyTypeName: FlippingPlatformsBehaviour, Assembly-CSharp
+        m_MethodName: StartFlip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6531,6 +6588,7 @@ MonoBehaviour:
   L_Reached: 1
   R_Reached: 0
   repeatFrequency: 0.01
+  pSpeed: 0
 --- !u!65 &1377908847
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8333,6 +8391,7 @@ MonoBehaviour:
   L_Reached: 1
   R_Reached: 0
   repeatFrequency: 0.01
+  pSpeed: 0
 --- !u!1 &1880476353
 GameObject:
   m_ObjectHideFlags: 0
@@ -9074,6 +9133,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 120827fa0a376fa4cbbb619d7e8eb50a, type: 3}
+--- !u!1 &2087650663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2087650665}
+  - component: {fileID: 2087650664}
+  m_Layer: 0
+  m_Name: SkyboxOBJ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2087650664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087650663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e2f96521aaae542a0d74b05fab38b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+--- !u!4 &2087650665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087650663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.19891, y: 15.202325, z: 16.669237}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114808774
 GameObject:
   m_ObjectHideFlags: 0
