@@ -9,6 +9,8 @@ public class PlatformMovementBehvaiour : MonoBehaviour
     public bool L_Reached, R_Reached;
 
     public float repeatFrequency = .01f;
+
+    public float pSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,21 +42,22 @@ public class PlatformMovementBehvaiour : MonoBehaviour
 
     IEnumerator MovePlatforms()
     {
+
         while (MovePlatform)
         {
             if (L_Reached)
             {
-                transform.Translate(.1f,0,0);
+                transform.Translate(pSpeed * Time.deltaTime,0,0); 
                 Debug.Log("SKRRT SKRRT RIGHT");
             }
             else
             {
-                transform.Translate(-.1f,0,0);
+                transform.Translate(-pSpeed * Time.deltaTime,0,0);
                 Debug.Log("SKRRT SKRRT LEFT");
             }
             
-            
             yield return new WaitForSeconds (repeatFrequency);
+            
         }
     }
 }
