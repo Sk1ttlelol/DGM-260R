@@ -7,12 +7,7 @@ public class SoundBehaviour : MonoBehaviour
 
     public AudioClip UISound, LockedUISound;
     public AudioSource UIAudio, LockedAudio, missleAudio;
-   
-    void Start()
-    {
-        
-    }
-
+    
     public void MakeUISound()
     {
         UIAudio.PlayOneShot(UISound, 1.0f);

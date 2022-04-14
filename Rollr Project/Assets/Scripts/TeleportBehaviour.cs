@@ -13,7 +13,7 @@ public class TeleportBehaviour : MonoBehaviour
     public GameObject playerOBJ;
 
 
-   public void StartLevel1()
+   public void StartLevel()
 
     {
         StartPoint = PlayerCheckpoint.value;
