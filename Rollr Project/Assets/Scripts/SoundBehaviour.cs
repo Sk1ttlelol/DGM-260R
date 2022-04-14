@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class SoundBehaviour : MonoBehaviour
 {
-    
-    public AudioClip deathSound, powerupSound, missleSound;
-    public AudioSource enemyAudio, powerupAudio, missleAudio;
+
+    public AudioClip UISound, LockedUISound;
+    public AudioSource UIAudio, LockedAudio, missleAudio;
    
     void Start()
     {
         
     }
 
-    public void MakeEnemySound()
+    public void MakeUISound()
     {
-        enemyAudio.PlayOneShot(deathSound, 1.0f);
+        UIAudio.PlayOneShot(UISound, 1.0f);
     }
 
-    public void MakePowerupSound()
+    public void MakeLockedUISound()
     {
-        powerupAudio.PlayOneShot(powerupSound, 1.0f);
+        LockedAudio.PlayOneShot(LockedUISound, 1.0f);
     }
 
     public void MakeMissleSound()
     {
-        missleAudio.PlayOneShot(missleSound, 1.0f);
+        //missleAudio.PlayOneShot(missleSound, 1.0f);
     }
 }
