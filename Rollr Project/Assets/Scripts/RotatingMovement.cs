@@ -38,7 +38,7 @@ public class RotatingMovement : MonoBehaviour
         while (RotatePlatform)
         {
             transform.Rotate(rotXSpeed * Time.deltaTime,rotYSpeed * Time.deltaTime,rotZSpeed * Time.deltaTime); 
-            Debug.Log("SKRRT SKRRT RIGHT");
+            
 
 
             yield return new WaitForSeconds (repeatFrequency);
