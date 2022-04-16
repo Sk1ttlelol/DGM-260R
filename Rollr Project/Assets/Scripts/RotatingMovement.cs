@@ -5,7 +5,6 @@ using UnityEngine;
 public class RotatingMovement : MonoBehaviour
 {
     
-    public float repeatFrequency = .01f;
     private bool RotatePlatform = true;
     public float rotXSpeed, rotYSpeed, rotZSpeed;
     
@@ -18,7 +17,7 @@ public class RotatingMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(rotXSpeed * Time.deltaTime,rotYSpeed * Time.deltaTime,rotZSpeed * Time.deltaTime);
     }
 
     public void AllowRotation()
@@ -26,23 +25,4 @@ public class RotatingMovement : MonoBehaviour
         RotatePlatform = true;
     }
     
-    public void StartMovement()
-    {
-        StartCoroutine(MovePlatforms());
-        Debug.Log("Coroutine Started");
-    }
-
-    IEnumerator MovePlatforms()
-    {
-
-        while (RotatePlatform)
-        {
-            transform.Rotate(rotXSpeed * Time.deltaTime,rotYSpeed * Time.deltaTime,rotZSpeed * Time.deltaTime); 
-            
-
-
-            yield return new WaitForSeconds (repeatFrequency);
-            
-        }
-    }
 }
