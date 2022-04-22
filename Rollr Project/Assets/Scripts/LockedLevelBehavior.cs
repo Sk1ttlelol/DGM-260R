@@ -6,43 +6,67 @@ using UnityEngine.Events;
 
 public class LockedLevelBehavior : MonoBehaviour
 {
-    private bool lockedButton2 = true, lockedButton3 = true, lockedButton4 = true, lockedButton5 = true, lockedButton6 = true, lockedButton7 = true, lockedButton8 = true;
+    //private bool lockedButton2 = true, lockedButton3 = true, lockedButton4 = true, lockedButton5 = true, lockedButton6 = true, lockedButton7 = true, lockedButton8 = true;
 
     public UnityEvent unlockLevel2Event, unlockLevel3Event, unlockLevel4Event, unlockLevel5Event, unlockLevel6Event, unlockLevel7Event, unlockLevel8Event;
+    public UnityEvent LevelScreenEvent;
+    
+    private int level2value;
+    private int level3value;
+    private int level4value;
+    private int level5value;
+    private int level6value;
+    private int level7value;
+    private int level8value;
+
 
     private void Awake()
     {
-        if (lockedButton2 == false)
+        PlayerPrefs.GetInt("Unlock2");
+        PlayerPrefs.GetInt("Unlock3");
+        PlayerPrefs.GetInt("Unlock4");
+        PlayerPrefs.GetInt("Unlock5");
+        PlayerPrefs.GetInt("Unlock6");
+        PlayerPrefs.GetInt("Unlock7");
+        PlayerPrefs.GetInt("Unlock8");
+        Debug.Log("Should be seeing this");
+    }
+
+    private void Start()
+    {
+        if (level2value == 1)
         {
             unlockLevel2Event.Invoke();
+            Debug.Log("big no no");
         }
         
-        if (lockedButton3 == false)
+        if (level3value == 1)
         {
             unlockLevel3Event.Invoke();
+            Debug.Log("big yes yes");
         }
         
-        if (lockedButton4 == false)
+        if (level4value == 1)
         {
             unlockLevel4Event.Invoke();
         }
         
-        if (lockedButton5 == false)
+        if (level5value == 1)
         {
             unlockLevel5Event.Invoke();
         }
         
-        if (lockedButton6 == false)
+        if (level6value == 1)
         {
             unlockLevel6Event.Invoke();
         }
         
-        if (lockedButton7 == false)
+        if (level7value == 1)
         {
             unlockLevel7Event.Invoke();
         }
         
-        if (lockedButton8 == false)
+        if (level8value == 1)
         {
             unlockLevel8Event.Invoke();
         }
@@ -51,51 +75,58 @@ public class LockedLevelBehavior : MonoBehaviour
 
     public void UnlockButton2()
     {
-        lockedButton2 = false;
+        level2value = 1;
+        PlayerPrefs.SetInt("Unlock2", level2value);
         unlockLevel2Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton3()
     {
-        lockedButton3 = false;
+        level3value = 1;
+        PlayerPrefs.SetInt("Unlock3", level3value);
         unlockLevel3Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton4()
     {
-        lockedButton4 = false;
+        level4value = 1;
+        PlayerPrefs.SetInt("Unlock4", level4value);
         unlockLevel4Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton5()
     {
-        lockedButton5 = false;
+        level5value = 1;
+        PlayerPrefs.SetInt("Unlock5", level5value);
         unlockLevel5Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton6()
     {
-        lockedButton6 = false;
+        level6value = 1;
+        PlayerPrefs.SetInt("Unlock6", level6value);
         unlockLevel6Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton7()
     {
-        lockedButton7 = false;
+        level7value = 1;
+        PlayerPrefs.SetInt("Unlock7", level7value);
         unlockLevel7Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
     
     public void UnlockButton8()
     {
-        lockedButton8 = false;
+        level8value = 1;
+        PlayerPrefs.SetInt("Unlock8", level8value);
         unlockLevel8Event.Invoke();
-        //Something with playerPrefs here
+        LevelScreenEvent.Invoke();
     }
 
 

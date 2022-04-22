@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotatingMovement : MonoBehaviour
 {
     
-    private bool RotatePlatform = true;
+    public bool RotatePlatform = true;
     public float rotXSpeed, rotYSpeed, rotZSpeed;
     
     // Start is called before the first frame update

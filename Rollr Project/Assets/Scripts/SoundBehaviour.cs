@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,16 @@ using UnityEngine;
 public class SoundBehaviour : MonoBehaviour
 {
 
-    public AudioClip UISound, LockedUISound;
-    public AudioSource UIAudio, LockedAudio, missleAudio;
+    public AudioClip UISound, LockedUISound, StartSound, GameMusicSound;
+    public AudioSource UIAudio, LockedAudio, StartScreenAudio, GameMusicAudio;
+
+    public void StopStartMusic()
+    {
+        StartScreenAudio.Stop();
+        GameMusicAudio.Play();
+    }
     
+
     public void MakeUISound()
     {
         UIAudio.PlayOneShot(UISound, 1.0f);
