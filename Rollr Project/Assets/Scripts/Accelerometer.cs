@@ -6,6 +6,7 @@ public class Accelerometer : MonoBehaviour
 {
 
     public bool isFlat = true;
+    public bool canMove = false;
     public float rollForce;
 
     private Rigidbody rigid;
@@ -15,18 +16,26 @@ public class Accelerometer : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
+    public void StartAccelerometer()
+    {
+        canMove = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Vector3 tilt = Input.acceleration;
-
-        if (isFlat)
+        if (canMove)
         {
-            tilt = Quaternion.Euler(135, 0, 0) * tilt * rollForce * Time.deltaTime;
-        }
+            Vector3 tilt = Input.acceleration;
 
-        rigid.AddForce(tilt);
-        Debug.DrawRay(transform.position + Vector3.up, tilt, Color.black);
+            if (isFlat)
+            {
+                tilt = Quaternion.Euler(135, 0, 0) * tilt * rollForce * Time.deltaTime;
+            }
+
+            rigid.AddForce(tilt);
+            Debug.DrawRay(transform.position + Vector3.up, tilt, Color.black);
+        }
     }
 
 }
